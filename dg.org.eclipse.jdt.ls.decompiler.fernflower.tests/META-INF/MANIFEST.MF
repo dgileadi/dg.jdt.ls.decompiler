@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JDT LS Fernflower Decompiler Tests
+Bundle-SymbolicName: dg.jdt.ls.decompiler.fernflower.tests;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ dg.jdt.ls.decompiler.fernflower,
+ org.eclipse.jdt.ls.core,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.launching,
+ org.junit;bundle-version="4.12.0",
+ org.mockito.mockito-all;bundle-version="1.9.5"
