@@ -18,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jdt.core.IClassFile;
@@ -27,8 +28,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-
-import dg.jdt.ls.decompiler.fernflower.FernflowerDecompiler;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestFernflowerDecompiler {
@@ -55,7 +54,7 @@ public class TestFernflowerDecompiler {
 	}
 
 	@Test
-	public void testDecompile() throws IOException {
+	public void testDecompile() throws CoreException {
 		FernflowerDecompiler decompiler = new FernflowerDecompiler();
 		String decompiled = decompiler.decompile(classFile, null, monitor);
 		assertEquals(EXPECTED_DECOMPILED_CODE, decompiled);

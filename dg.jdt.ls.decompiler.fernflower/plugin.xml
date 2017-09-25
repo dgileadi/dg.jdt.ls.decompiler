@@ -2,12 +2,12 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.jdt.ls.core.decompilerCommandHandler">
-      <decompilerCommandHandler
+         point="org.eclipse.jdt.ls.core.decompiler">
+      <decompiler
             id="fernflower"
             name="Fernflower Decompiler"
             class="dg.jdt.ls.decompiler.fernflower.FernflowerDecompiler">
-      </decompilerCommandHandler>
+      </decompiler>
    </extension>
 
 </plugin>

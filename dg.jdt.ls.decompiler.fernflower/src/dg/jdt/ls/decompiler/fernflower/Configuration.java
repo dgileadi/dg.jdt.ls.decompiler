@@ -19,35 +19,32 @@ import org.jetbrains.java.decompiler.main.extern.IFernflowerPreferences;
 public class Configuration {
 	public final Map<String, Object> options;
 
-	public Configuration(String configuration) {
+	public Configuration(Map<String, Object> configuration) {
 		options = new HashMap<>();
-		populateDefaultOptions();
-		parse(configuration);
+		convertBooleans(configuration);
+		populateOptions(configuration);
 	}
 
-	private void populateDefaultOptions() {
+	private void populateOptions(Map<String, Object> configuration) {
 		options.put(IFernflowerPreferences.REMOVE_SYNTHETIC, "1");
 		options.put(IFernflowerPreferences.DECOMPILE_GENERIC_SIGNATURES, "1");
 		options.put(IFernflowerPreferences.DECOMPILE_INNER, "1");
 		options.put(IFernflowerPreferences.DECOMPILE_ENUM, "1");
 		options.put(IFernflowerPreferences.LOG_LEVEL, IFernflowerLogger.Severity.ERROR.name());
 		options.put(IFernflowerPreferences.ASCII_STRING_CHARACTERS, "1");
+		if (configuration != null) {
+			options.putAll(configuration);
+		}
 	}
 
-	public void parse(String configuration) {
+	private void convertBooleans(Map<String, Object> configuration) {
 		if (configuration == null) {
 			return;
 		}
-		String[] args = configuration.split("\\s+");
-		for (String arg : args) {
-			if (arg.length() > 5 && arg.charAt(0) == '-' && arg.charAt(4) == '=') {
-				String value = arg.substring(5);
-				if ("true".equalsIgnoreCase(value)) {
-					value = "1";
-				} else if ("false".equalsIgnoreCase(value)) {
-					value = "0";
-				}
-				options.put(arg.substring(1, 4), value);
+		for (String key : configuration.keySet()) {
+			if (configuration.get(key) instanceof Boolean) {
+				String value = ((Boolean) configuration.get(key)).booleanValue() ? "1" : "0";
+				configuration.put(key, value);
 			}
 		}
 	}

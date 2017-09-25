@@ -17,8 +17,6 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import dg.jdt.ls.decompiler.fernflower.Configuration;
-
 public class TestConfiguration {
 
 	@Test
@@ -29,15 +27,14 @@ public class TestConfiguration {
 	}
 
 	@Test
-	public void testParseConfiguration() {
-		String configuration = "-inn=true -mpm=hello -fdi=1 -ind=false   -longer=nope -sh=ort";
+	public void testConvertBooleans() {
+		Map<String, Object> options = new HashMap<String, Object>();
+		options.put("inn", true);
+
 		Map<String, Object> expectedOptions = createExpectedOptions();
 		expectedOptions.put("inn", "1");
-		expectedOptions.put("mpm", "hello");
-		expectedOptions.put("fdi", "1");
-		expectedOptions.put("ind", "0");
 
-		Configuration config = new Configuration(configuration);
+		Configuration config = new Configuration(options);
 		assertEquals(expectedOptions, config.options);
 	}
 
