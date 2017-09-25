@@ -5,7 +5,7 @@
          point="org.eclipse.jdt.ls.core.decompiler">
       <decompiler
             id="fernflower"
-            name="Fernflower Decompiler"
+            name="Fernflower decompiler"
             class="dg.jdt.ls.decompiler.fernflower.FernflowerDecompiler">
       </decompiler>
    </extension>
