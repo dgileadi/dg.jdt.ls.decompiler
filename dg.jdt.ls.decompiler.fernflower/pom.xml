@@ -1,8 +1,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.eclipse.jdt.ls.decompiler.fernflower</groupId>
-	<artifactId>org.eclipse.jdt.ls.decompiler.fernflower</artifactId>
+	<groupId>dg.jdt.ls.decompiler.fernflower</groupId>
+	<artifactId>dg.jdt.ls.decompiler.fernflower</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
 	<build>
@@ -23,13 +23,6 @@
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
 					<version>${tycho-version}</version>
-					<configuration>
-						<argLine>${tycho.testArgLine} ${os.testArgs}</argLine>
-						<providerProperties>
-							<excludegroups>org.eclipse.jdt.ls.tests.Unstable</excludegroups>
-						</providerProperties>
-					</configuration>
-
 				</plugin>
 			</plugins>
 		</pluginManagement>
