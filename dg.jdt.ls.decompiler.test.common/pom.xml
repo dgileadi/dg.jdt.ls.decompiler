@@ -6,16 +6,6 @@
 		<artifactId>parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>dg.jdt.ls.decompiler.fernflower</artifactId>
+	<artifactId>dg.jdt.ls.decompiler.test.common</artifactId>
 	<packaging>eclipse-plugin</packaging>
-
-	<dependencies>
-		<dependency>
-			<groupId>fernflower</groupId>
-			<artifactId>fernflower</artifactId>
-			<version>1.0.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/fernflower.jar</systemPath>
-		</dependency>
-	</dependencies>
 </project>

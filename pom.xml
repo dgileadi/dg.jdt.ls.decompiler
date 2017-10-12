@@ -26,7 +26,7 @@
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
-			<plugin>
+<!-- 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
@@ -66,7 +66,47 @@
 						</environment>
 					</environments>
 				</configuration>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
+	<repositories>
+		<repository>
+			<id>jdtls-latest</id>
+			<url>http://download.eclipse.org/jdtls/snapshots/repository/latest/</url>
+			<layout>p2</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>eclipse-4.7</id>
+			<url>http://download.eclipse.org/eclipse/updates/4.7/</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>eclipse-oxygen</id>
+			<url>http://download.eclipse.org/releases/oxygen</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>m2e</id>
+			<url>http://download.eclipse.org/technology/m2e/releases/1.8/1.8.1.20170728-1531</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>tools</id>
+			<url>http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>buildship</id>
+			<url>http://download.eclipse.org/buildship/updates/e47/milestones/2.x/</url>
+			<layout>p2</layout>
+		</repository>
+		<repository>
+			<id>lsp4j</id>
+			<url>http://download.eclipse.org/lsp4j/updates/milestones/</url>
+			<layout>p2</layout>
+		</repository>
+	</repositories>
 </project>
