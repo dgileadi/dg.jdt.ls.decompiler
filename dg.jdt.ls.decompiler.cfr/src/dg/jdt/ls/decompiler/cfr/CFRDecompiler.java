@@ -16,6 +16,8 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
+import dg.jdt.ls.decompiler.common.CachingDecompiler;
+
 import org.benf.cfr.reader.api.ClassFileSource;
 import org.benf.cfr.reader.entities.ClassFile;
 import org.benf.cfr.reader.entities.Method;
@@ -35,7 +37,7 @@ import org.eclipse.jdt.ls.core.internal.JDTUtils;
 import org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin;
 import org.eclipse.jdt.ls.core.internal.preferences.Preferences;
 
-public class CFRDecompiler implements IDecompiler {
+public class CFRDecompiler extends CachingDecompiler {
 
 	public static final String OPTIONS_KEY = "java.decompiler.cfr";
 
@@ -61,10 +63,10 @@ public class CFRDecompiler implements IDecompiler {
 	}
 
 	@Override
-	public String getContent(URI uri, IProgressMonitor monitor) throws CoreException {
+	protected String decompileContent(URI uri, IProgressMonitor monitor) throws CoreException {
 		IClassFile classFile = JDTUtils.resolveClassFile(uri);
 		if (classFile != null) {
-			return getSource(classFile, monitor);
+			return decompileContent(classFile, monitor);
 		}
 
 		Options options = new OptionsImpl(uri.getPath(), null, this.options);
@@ -72,7 +74,7 @@ public class CFRDecompiler implements IDecompiler {
 	}
 
 	@Override
-	public String getSource(IClassFile classFile, IProgressMonitor monitor) throws CoreException {
+	protected String decompileContent(IClassFile classFile, IProgressMonitor monitor) throws CoreException {
 		Options options = new OptionsImpl(JDTClassFileSource.FAKE_PATH, null, this.options);
 		return getContent(new JDTClassFileSource(classFile, options), options, monitor);
 	}
@@ -94,7 +96,7 @@ public class CFRDecompiler implements IDecompiler {
 
 			IllegalIdentifierDump illegalIdentifierDump = IllegalIdentifierDump.Factory.get(options);
 
-			StringBuilder source = new StringBuilder();
+			final StringBuilder source = new StringBuilder();
 			StreamDumper dumper = new StreamDumper(collectingDumper.getTypeUsageInformation(), options,
 					illegalIdentifierDump) {
 				@Override

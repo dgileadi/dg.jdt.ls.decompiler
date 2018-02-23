@@ -3,12 +3,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>dg.jdt.ls.decompiler</groupId>
 	<artifactId>parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
 		<tycho-version>1.0.0</tycho-version>
 	</properties>
+
+	<modules>
+		<module>dg.jdt.ls.decompiler.cfr</module>
+		<module>dg.jdt.ls.decompiler.cfr.tests</module>
+		<module>dg.jdt.ls.decompiler.fernflower</module>
+		<module>dg.jdt.ls.decompiler.fernflower.tests</module>
+		<module>dg.jdt.ls.decompiler.procyon</module>
+		<module>dg.jdt.ls.decompiler.procyon.tests</module>
+		<module>dg.jdt.ls.decompiler.common</module>
+		<module>dg.jdt.ls.decompiler.test.common</module>
+	</modules>
 
 	<build>
 		<plugins>

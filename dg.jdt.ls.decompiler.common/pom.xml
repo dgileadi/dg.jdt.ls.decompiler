@@ -6,16 +6,6 @@
 		<artifactId>parent</artifactId>
 		<version>0.0.2-SNAPSHOT</version>
 	</parent>
-	<artifactId>dg.jdt.ls.decompiler.cfr</artifactId>
+	<artifactId>dg.jdt.ls.decompiler.common</artifactId>
 	<packaging>eclipse-plugin</packaging>
-
-	<dependencies>
-		<dependency>
-			<groupId>cfr</groupId>
-			<artifactId>cfr</artifactId>
-			<version>0.125.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/cfr_0_125.jar</systemPath>
-		</dependency>
-	</dependencies>
 </project>

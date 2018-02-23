@@ -33,9 +33,15 @@ import org.eclipse.jdt.core.WorkingCopyOwner;
 
 public class FakeClassFile implements IClassFile {
 	private final byte[] bytes;
+	private final String handleIdentifier;
 
 	public FakeClassFile(byte[] bytes) {
+		this(bytes, "test identifier");
+	}
+
+	public FakeClassFile(byte[] bytes, String handleIdentifier) {
 		this.bytes = bytes;
+		this.handleIdentifier = handleIdentifier;
 	}
 
 	@Override
@@ -80,7 +86,7 @@ public class FakeClassFile implements IClassFile {
 
 	@Override
 	public String getHandleIdentifier() {
-		return null;
+		return handleIdentifier;
 	}
 
 	@Override

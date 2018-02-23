@@ -26,12 +26,12 @@ class DummyLogger extends IFernflowerLogger {
 		case ERROR:
 			JavaLanguageServerPlugin.logError(message);
 			break;
-		}		
+		}
 	}
 
 	@Override
-	public void writeMessage(String message, Throwable e) {
-		JavaLanguageServerPlugin.logException(message, e);
+	public void writeMessage(String message, Severity severity, Throwable t) {
+		JavaLanguageServerPlugin.logException(message, t);
 	}
-	
+
 }

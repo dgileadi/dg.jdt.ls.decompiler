@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JDT LS Decompiler Common code
+Bundle-SymbolicName: dg.jdt.ls.decompiler.common;singleton:=true
+Bundle-Version: 0.0.2.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.jdt.ls.core,
+ org.eclipse.jdt.core,
+ org.eclipse.equinox.common,
+ com.google.guava
+Export-Package: dg.jdt.ls.decompiler.common
