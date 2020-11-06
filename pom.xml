@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>1.0.0</tycho-version>
+		<tycho-version>1.3.0</tycho-version>
 	</properties>
 
 	<modules>
@@ -110,7 +110,7 @@
 		</repository>
 		<repository>
 			<id>lsp4j</id>
-			<url>http://download.eclipse.org/lsp4j/updates/milestones/</url>
+			<url>http://download.eclipse.org/lsp4j/updates/releases/0.9.0/</url>
 			<layout>p2</layout>
 		</repository>
 	</repositories>
