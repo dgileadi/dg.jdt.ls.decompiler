@@ -8,5 +8,4 @@
             class="dg.jdt.ls.decompiler.procyon.ProcyonDecompiler">
       </contentProvider>
    </extension>
-
 </plugin>

@@ -1,12 +1,18 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Fernflower
+Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: dg.jdt.ls.decompiler.fernflower;singleton:=true
-Bundle-Version: 0.0.2.qualifier
-Export-Package: dg.jdt.ls.decompiler.fernflower
-Require-Bundle: org.eclipse.jdt.ls.core,
+Bundle-Version: 0.0.3.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-Localization: plugin
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.jdt.ls.core;bundle-version="1.8.0",
  org.eclipse.jdt.core,
  org.eclipse.equinox.common,
  dg.jdt.ls.decompiler.common
-Bundle-ClassPath: lib/fernflower.jar,
+Export-Package: dg.jdt.ls.decompiler.fernflower;x-friends:="dg.jdt.ls.decompiler.fernflower.tests"
+Bundle-ClassPath: lib/java-decompiler-engine.jar,
  .
+Bundle-Vendor: %Bundle-Vendor
+Automatic-Module-Name: dg.jdt.ls.decompiler.fernflower

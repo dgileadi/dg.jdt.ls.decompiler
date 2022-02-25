@@ -1,0 +1,16 @@
+{
+    "projects": [
+        "dg.jdt.ls.decompiler.common",
+        "dg.jdt.ls.decompiler.cfr",
+        "dg.jdt.ls.decompiler.fernflower",
+        "dg.jdt.ls.decompiler.procyon",
+        "dg.jdt.ls.decompiler.target",
+        "dg.jdt.ls.decompiler.common.tests",
+        "dg.jdt.ls.decompiler.cfr.tests",
+        "dg.jdt.ls.decompiler.fernflower.tests",
+        "dg.jdt.ls.decompiler.procyon.tests"
+    ],
+
+   "targetPlatform": "dg.jdt.ls.decompiler.target/dg.jdt.ls.decompiler.tp.target"
+
+}

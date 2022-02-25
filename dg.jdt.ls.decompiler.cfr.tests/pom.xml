@@ -1,12 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>dg.jdt.ls.decompiler</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>dg.jdt.ls.decompiler.cfr.tests</artifactId>
+	<name>${base.name} :: CFR Tests</name>
 	<packaging>eclipse-test-plugin</packaging>
 
 	<build>
@@ -14,13 +17,55 @@
 			<plugins>
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
+					<artifactId>tycho-compiler-plugin</artifactId>
+					<version>${tycho-version}</version>
+					<configuration>
+						<compilerArgument>-warn:+discouraged,forbidden</compilerArgument>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
 					<version>${tycho-version}</version>
+					<configuration>
+						<argLine>${tycho.testArgLine} ${os.testArgs} ${lombokArgs}</argLine>
+						<runOrder>random</runOrder>
+						<trimStackTrace>false</trimStackTrace>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
 	<profiles>
+		<profile>
+			<id>lombok</id>
+			<activation>
+				<property>
+					<name>jdt.ls.lombok.enabled</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<properties>
+				<lombokArgs>-javaagent:${basedir}/lib/lombok-1.18.22.jar</lombokArgs>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>org.projectlombok</groupId>
+									<artifactId>lombok</artifactId>
+									<version>1.18.22</version>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		<profile>
 			<id>macosx-jvm-flags</id>
 			<activation>
@@ -31,6 +76,26 @@
 			<properties>
 				<os.testArgs>-XstartOnFirstThread -noverify</os.testArgs>
 			</properties>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.eclipse.tycho</groupId>
+							<artifactId>tycho-surefire-plugin</artifactId>
+							<version>${tycho-version}</version>
+							<configuration>
+								<dependencies>
+									<dependency>
+										<artifactId>org.eclipse.jdt</artifactId>
+										<version>0.0.0</version>
+										<type>eclipse-feature</type>
+									</dependency>
+								</dependencies>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
 		</profile>
 	</profiles>
 </project>

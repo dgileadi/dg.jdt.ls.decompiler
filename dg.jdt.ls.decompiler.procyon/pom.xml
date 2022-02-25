@@ -1,22 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>dg.jdt.ls.decompiler</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>dg.jdt.ls.decompiler.procyon</artifactId>
 	<packaging>eclipse-plugin</packaging>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.bitbucket.mstrobel</groupId>
-			<artifactId>procyon-compilertools</artifactId>
-			<version>0.5.30</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/procyon-decompiler-0.5.30.jar</systemPath>
-		</dependency>
-	</dependencies>
-
+	<name>${base.name} :: Procyon Decompiler</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>org.bitbucket.mstrobel</groupId>
+							<artifactId>procyon-compilertools</artifactId>
+							<version>${procyon-version}</version>
+						</artifactItem>
+						<artifactItem>
+							<groupId>org.bitbucket.mstrobel</groupId>
+							<artifactId>procyon-core</artifactId>
+							<version>${procyon-version}</version>
+						</artifactItem>
+					</artifactItems>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>jetbrains-intellij</id>
+			<url>https://www.jetbrains.com/intellij-repository/releases/</url>
+		</repository>
+	</repositories>
 </project>

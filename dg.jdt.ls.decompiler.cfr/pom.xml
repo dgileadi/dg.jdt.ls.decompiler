@@ -1,21 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>dg.jdt.ls.decompiler</groupId>
 		<artifactId>parent</artifactId>
-		<version>0.0.2-SNAPSHOT</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>dg.jdt.ls.decompiler.cfr</artifactId>
 	<packaging>eclipse-plugin</packaging>
-
-	<dependencies>
-		<dependency>
-			<groupId>cfr</groupId>
-			<artifactId>cfr</artifactId>
-			<version>0.125.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/cfr_0_125.jar</systemPath>
-		</dependency>
-	</dependencies>
+	<name>${base.name} :: CFR Decompiler</name>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>org.benf</groupId>
+							<artifactId>cfr</artifactId>
+							<version>${cfr-version}</version>
+						</artifactItem>
+					</artifactItems>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>jetbrains-intellij</id>
+			<url>https://www.jetbrains.com/intellij-repository/releases/</url>
+		</repository>
+	</repositories>
 </project>

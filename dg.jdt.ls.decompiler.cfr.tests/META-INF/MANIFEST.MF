@@ -1,18 +1,20 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: JDT LS CFR Decompiler Tests
+Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: dg.jdt.ls.decompiler.cfr.tests;singleton:=true
-Bundle-Version: 0.0.2.qualifier
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Version: 0.0.3.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Import-Package: org.osgi.framework;version="1.3.0"
-Fragment-Host: dg.jdt.ls.decompiler.cfr
+Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.core.runtime,
- dg.jdt.ls.decompiler.test.common,
- dg.jdt.ls.decompiler.cfr,
  org.eclipse.jdt.ls.core,
  org.eclipse.jdt.core,
  org.eclipse.jdt.launching,
- org.junit,
- org.mockito,
- org.hamcrest
+ org.junit;bundle-version="4.12.0",
+ org.mockito.mockito-all;bundle-version="1.9.5",
+ org.eclipse.core.resources,
+ dg.jdt.ls.decompiler.common,
+ dg.jdt.ls.decompiler.common.tests,
+ dg.jdt.ls.decompiler.cfr
+Bundle-Vendor: %Bundle-Vendor

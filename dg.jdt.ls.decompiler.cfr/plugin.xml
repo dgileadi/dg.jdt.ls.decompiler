@@ -8,5 +8,4 @@
             class="dg.jdt.ls.decompiler.cfr.CFRDecompiler">
       </contentProvider>
    </extension>
-
 </plugin>
