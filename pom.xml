@@ -28,7 +28,7 @@
 		<generateSourceRef>true</generateSourceRef>
 
 		<cfr-version>0.152</cfr-version>
-		<fernflower-version>213.6777.52</fernflower-version>
+		<fernflower-version>232.10227.8</fernflower-version>
 		<procyon-version>0.6.0</procyon-version>
 	</properties>
 	<modules>
