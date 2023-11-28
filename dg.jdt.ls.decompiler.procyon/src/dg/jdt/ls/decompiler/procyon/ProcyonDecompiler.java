@@ -63,7 +63,7 @@ public class ProcyonDecompiler extends CachingDecompiler {
 			}
 
 			Gson gson = new Gson();
-			JsonElement jsonElement = gson.toJsonTree(options);
+			JsonElement jsonElement = gson.toJsonTree(optionsMap);
 			settings = gson.fromJson(jsonElement, DecompilerSettings.class);
 			settings.setJavaFormattingOptions(JavaFormattingOptions.createDefault());
 			if (!((Map<?, ?>) options).containsKey("forceExplicitImports")) {
